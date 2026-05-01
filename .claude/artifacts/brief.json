@@ -1,0 +1,72 @@
+{
+  "project_name": "Entono",
+  "overview": "Entono is a high fashion autumn wear brand based in Paris. The brand centers entirely on autumn as both a season and a color — exploring depth of hue, rhythm of form, and the emotional resonance of muted earth tones. The website serves as a digital lookbook and brand showcase, presenting editorial collections, a lookbook gallery, brand philosophy, and contact information. No e-commerce — pure brand experience.",
+  "goals": [
+    "Establish Entono as a luxury autumn-only fashion brand with a distinct visual identity",
+    "Showcase collections (SS26, FW25, RES25) and editorial lookbook imagery",
+    "Communicate brand philosophy — autumn as color, emotion, and intention",
+    "Provide contact channel for press, wholesale, and general inquiries",
+    "Create an immersive, cinematic scroll experience befitting a high fashion brand"
+  ],
+  "target_audience": "Fashion-forward consumers, industry press, and wholesale buyers interested in luxury autumn wear. Audience appreciates minimalist design, editorial photography, and thoughtful brand storytelling. Demographics: ages 25-45, based primarily in Europe (Paris headquarters) with international fashion interest. Psychographics: values craftsmanship, seasonal intentionality, muted luxury over loud branding.",
+  "tone_style": "Luxurious minimalism — warm earth tone palette (oat, charcoal, warm gray, umber, sienna), editorial typography (Playfair Display + Inter), generous whitespace, large display headings, cinematic scroll animations. Tone is poetic and restrained: 'The depth of hue. The rhythm of form.' Visual style draws from high fashion editorial — think Vogue Italia meets Jil Sander. No slang, no casual language. Everything feels intentional and curated.",
+  "scope_mvp": [
+    "Hero section — full-viewport parallax image with brand name and tagline",
+    "Collections section — three collections displayed as editorial cards with hover interactions",
+    "Lookbook section — masonry image grid with lightbox viewer",
+    "About section — brand philosophy, atelier image, key stats (founded 2019, 12 collections, 1 season)",
+    "Contact section — contact form, email addresses, Paris atelier address",
+    "Fixed navigation — transparent-to-frosted-glass header with smooth scroll links",
+    "Mobile responsive — hamburger menu, stacked layouts, touch-friendly interactions",
+    "Scroll-triggered animations — sections fade up into view with staggered delays"
+  ],
+  "constraints": [
+    "Single-page static site — no backend, no database, no CMS",
+    "No e-commerce — no shopping cart, no product pages, no payment integration",
+    "All content statically embedded in React components — no dynamic content management",
+    "Image assets pre-loaded in /public/images/ — no CDN or dynamic image generation",
+    "Tech stack: Next.js 16, React 19, TypeScript, Tailwind CSS v4, Framer Motion",
+    "Brand identity already established — colors, fonts, and visual language defined in globals.css",
+    "Seven editorial images already generated and stored locally (~10MB total)"
+  ],
+  "bespoke_requirements": {
+    "design_options": [
+      "Warm earth tone palette — oat, charcoal, warm gray, umber, sienna",
+      "Playfair Display + Inter typography with custom tracking tokens",
+      "Cinematic parallax hero with scroll-driven fade-out",
+      "Editorial masonry grid for lookbook",
+      "Custom scrollbar and selection styling"
+    ],
+    "feature_requirements": [
+      "Single-page smooth scroll navigation",
+      "Lookbook lightbox with scale animation",
+      "Hero parallax scrolling effect",
+      "Scroll-triggered section animations (Framer Motion useInView)",
+      "Collection card hover interactions (lift, zoom, expand)",
+      "Contact form with animated submit feedback",
+      "Sticky nav with transparent-to-solid transition",
+      "Mobile hamburger menu with animated transitions"
+    ],
+    "content_types": [
+      "Collections — SS26, FW25, RES25 with titles, descriptions, images",
+      "Lookbook — 7+ editorial images with captions",
+      "Brand philosophy — three-paragraph origin story",
+      "Stats — founded year, collection count, season focus",
+      "Contact — email addresses, Paris address, contact form"
+    ],
+    "constraints": [
+      "No backend / no database / no CMS",
+      "No e-commerce / no checkout / no product pages",
+      "Mobile-first responsive design required",
+      "All images pre-loaded locally"
+    ],
+    "brand_guidelines": [
+      "Brand name: ENTONO (all caps, ultra-tight tracking)",
+      "Tagline: 'The depth of hue. The rhythm of form.'",
+      "Founded: 2019, Paris (42 Rue du Faubourg Saint-Honoré)",
+      "12 collections, 1 season (autumn only)",
+      "Poetic, restrained tone — no slang or casual language",
+      "Autumn as color and emotion, not just a season"
+    ]
+  }
+}

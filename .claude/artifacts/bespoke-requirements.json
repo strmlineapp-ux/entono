@@ -1,0 +1,310 @@
+{
+  "project_name": "Entono",
+  "requirements": [
+    {
+      "id": "feat-001",
+      "category": "feature",
+      "description": "Single-page scroll experience with smooth anchor navigation between Hero, Collections, Lookbook, About, Contact sections",
+      "testable": true,
+      "test_strategy": "playwright-interaction",
+      "page": "/",
+      "acceptance_criteria": [
+        "Nav links scroll to correct sections via anchor navigation",
+        "Smooth scroll behavior enabled on html element",
+        "Hero section fills full viewport height (h-screen)"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "feat-002",
+      "category": "feature",
+      "description": "Lookbook lightbox — click-to-open full-screen image viewer with smooth scale animation and close button",
+      "testable": true,
+      "test_strategy": "playwright-interaction",
+      "page": "/lookbook",
+      "acceptance_criteria": [
+        "Clicking a lookbook image opens full-screen lightbox",
+        "Close button and backdrop click dismiss lightbox",
+        "Image caption displayed below lightbox image"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "feat-003",
+      "category": "feature",
+      "description": "Hero parallax scrolling — background image moves at different scroll rate, content fades out, subtle scale effect",
+      "testable": true,
+      "test_strategy": "playwright-interaction",
+      "page": "/",
+      "acceptance_criteria": [
+        "Background image moves at different scroll rate than foreground content",
+        "Hero content fades out as user scrolls down",
+        "Subtle scale effect on background image during scroll"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "feat-004",
+      "category": "feature",
+      "description": "Scroll-triggered animations — sections animate in on scroll using Framer Motion useInView with staggered delays",
+      "testable": true,
+      "test_strategy": "playwright-interaction",
+      "page": "/",
+      "acceptance_criteria": [
+        "Each section fades up into view when scrolled into viewport",
+        "Staggered delays create cascading effect within sections",
+        "Animations only fire once (not on re-entry)"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "feat-005",
+      "category": "feature",
+      "description": "Collection card hover interactions — lift effect, image zoom, expandable description on hover",
+      "testable": true,
+      "test_strategy": "playwright-interaction",
+      "page": "/collections",
+      "acceptance_criteria": [
+        "Hovering a collection card lifts it with Y translation",
+        "Image zooms slightly on hover",
+        "Description text expands below card on hover"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "feat-006",
+      "category": "feature",
+      "description": "Contact form with submit feedback — name, email, message fields with animated thank you confirmation",
+      "testable": true,
+      "test_strategy": "playwright-interaction",
+      "page": "/contact",
+      "acceptance_criteria": [
+        "Form validates required fields",
+        "Submit shows Thank you confirmation animation",
+        "Form resets after 3 seconds"
+      ],
+      "priority": "medium"
+    },
+    {
+      "id": "feat-007",
+      "category": "feature",
+      "description": "Sticky transparent-to-solid navigation — fixed header transitions from transparent to frosted glass on scroll",
+      "testable": true,
+      "test_strategy": "playwright-interaction",
+      "page": "/",
+      "acceptance_criteria": [
+        "Nav is transparent at page top",
+        "Becomes bg-oat/90 with backdrop-blur-md after scrolling 60px",
+        "Mobile hamburger menu with animated icon transitions"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "design-001",
+      "category": "design",
+      "description": "Warm earth tone palette — oat, charcoal, warm gray, umber, sienna conveying autumn luxury",
+      "testable": false,
+      "test_strategy": "manual-visual",
+      "page": "*",
+      "acceptance_criteria": [
+        "All CSS custom properties defined in globals.css @theme",
+        "Colors consistent across all sections",
+        "No deviation from established palette"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "design-002",
+      "category": "design",
+      "description": "Typography hierarchy — Playfair Display for display/headings, Inter for body. Ultra-tight tracking on brand name, wide tracking on labels",
+      "testable": false,
+      "test_strategy": "manual-visual",
+      "page": "*",
+      "acceptance_criteria": [
+        "Playfair Display loaded via next/font/google",
+        "Inter loaded via next/font/google",
+        "Custom tracking tokens applied correctly (--tracking-ultra, --tracking-wide, --tracking-widest)"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "design-003",
+      "category": "design",
+      "description": "Luxurious minimal aesthetic — generous whitespace, large display typography, editorial-style image grids",
+      "testable": false,
+      "test_strategy": "manual-visual",
+      "page": "*",
+      "acceptance_criteria": [
+        "Sections use generous padding (py-32 md:py-48)",
+        "Large display headings (text-4xl to text-9xl)",
+        "Image grids use tight gaps for editorial feel"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "design-004",
+      "category": "design",
+      "description": "Custom scrollbar and selection styling — warm gray thumb, umber selection background",
+      "testable": false,
+      "test_strategy": "manual-visual",
+      "page": "*",
+      "acceptance_criteria": [
+        "Custom scrollbar with 6px width",
+        "Selection uses umber background with oat text"
+      ],
+      "priority": "low"
+    },
+    {
+      "id": "content-001",
+      "category": "content",
+      "description": "Three collections displayed — SS26 Gilded Afternoon, FW25 Amber & Stone, RES25 Last Light",
+      "testable": true,
+      "test_strategy": "manual-review",
+      "page": "/collections",
+      "acceptance_criteria": [
+        "All three collections rendered with name, title, description, image",
+        "Collection images loaded from /images/"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "content-002",
+      "category": "content",
+      "description": "Lookbook — 5+ editorial images in masonry-style grid with captions",
+      "testable": true,
+      "test_strategy": "manual-review",
+      "page": "/lookbook",
+      "acceptance_criteria": [
+        "All lookbook images rendered in grid",
+        "Each image has caption overlay on hover"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "content-003",
+      "category": "content",
+      "description": "Brand story and stats — philosophy text, atelier image, stats (Founded 2019, 12 Collections, 1 Season)",
+      "testable": true,
+      "test_strategy": "manual-review",
+      "page": "/about",
+      "acceptance_criteria": [
+        "Brand philosophy text rendered in three paragraphs",
+        "Stats grid shows 2019, 12, 1 with labels"
+      ],
+      "priority": "high"
+    },
+    {
+      "id": "content-004",
+      "category": "content",
+      "description": "Contact information and form — email addresses, Paris atelier address, contact form",
+      "testable": true,
+      "test_strategy": "manual-review",
+      "page": "/contact",
+      "acceptance_criteria": [
+        "hello@entono.com, press@entono.com displayed",
+        "Paris address displayed",
+        "Contact form with name, email, message fields"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "constraint-001",
+      "category": "constraint",
+      "description": "No backend / no database — single-page static site, all content statically embedded in components",
+      "testable": true,
+      "test_strategy": "manual-review",
+      "page": "*",
+      "acceptance_criteria": [
+        "No Prisma / database models",
+        "No API routes for content",
+        "All data embedded in component files"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "constraint-002",
+      "category": "constraint",
+      "description": "No e-commerce / no checkout — brand showcase site only",
+      "testable": true,
+      "test_strategy": "manual-review",
+      "page": "*",
+      "acceptance_criteria": [
+        "No cart or checkout flows",
+        "No product detail pages"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "constraint-003",
+      "category": "constraint",
+      "description": "Mobile-first responsive design — hamburger menu, stacked layouts, touch-friendly interactions",
+      "testable": true,
+      "test_strategy": "playwright-interaction",
+      "page": "*",
+      "acceptance_criteria": [
+        "Mobile nav uses hamburger menu with full-screen overlay",
+        "Grid layouts stack to single column on mobile",
+        "Touch targets are adequately sized"
+      ],
+      "priority": "critical"
+    },
+    {
+      "id": "constraint-004",
+      "category": "constraint",
+      "description": "Image assets pre-loaded — all images are pre-generated editorial photos in /public/images/",
+      "testable": true,
+      "test_strategy": "manual-review",
+      "page": "*",
+      "acceptance_criteria": [
+        "All images reference /images/entono_*.png",
+        "No external image URLs"
+      ],
+      "priority": "medium"
+    }
+  ],
+  "metadata": {
+    "total_requirements": 19,
+    "testable_count": 14,
+    "manual_only_count": 5,
+    "by_category": {
+      "feature": 7,
+      "design": 4,
+      "content": 4,
+      "constraint": 4
+    },
+    "by_test_strategy": {
+      "playwright-interaction": 10,
+      "manual-review": 5,
+      "manual-visual": 4
+    },
+    "anticipated_schemas": [],
+    "anticipated_handoffs": [
+      "bespoke-requirements.json → review stage (bespoke interaction tests)"
+    ],
+    "dependencies": [
+      "framer-motion (all animations)",
+      "tailwindcss v4 (styling system)",
+      "next/font/google (Playfair Display + Inter fonts)",
+      "lucide-react (available but not yet used)",
+      "@radix-ui/react-slot (available but not yet used)"
+    ],
+    "perf_constraints": [],
+    "dependency_map": {
+      "backend": [],
+      "frontend": [
+        "Hero component — parallax scroll listener + Framer Motion",
+        "Collections component — hover state management + AnimatePresence",
+        "Lookbook component — image grid + lightbox state",
+        "Contact component — form state + submission feedback",
+        "Nav component — scroll detection + mobile menu state",
+        "AnimatedSection — useInView hook wrapper for scroll animations"
+      ],
+      "design": [
+        "Hero image — /images/entono_hero.png (parallax background)",
+        "Collection images — /images/entono_coll1-3.png",
+        "Lookbook images — /images/entono_lb1-5.png, /images/entono_lb3-5.png",
+        "About image — /images/entono_about.png"
+      ]
+    }
+  }
+}

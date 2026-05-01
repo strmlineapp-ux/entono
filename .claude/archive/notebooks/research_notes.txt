@@ -1,0 +1,14 @@
+Research Notes — Entono
+Date: 2026-05-01
+Method: Industry knowledge synthesis (web search unavailable)
+
+Key Findings:
+- Entono's autumn-only focus is unique among luxury fashion brands
+- Single-page scroll experience differentiates from multi-page competitor sites
+- Warm earth tone palette distinguishes from industry-standard black/white
+- No e-commerce / no CTAs aligns with luxury brand standards
+- Hero parallax + scroll animations match industry patterns
+- Contact form as primary interaction is appropriate for brand showcase
+
+Competitors: Jil Sander, COS, Acne Studios, The Row, Khaite, Toteme, Lemaire, Marine Serre
+Technical: Image optimization critical (10MB total), OG meta tags needed, structured data recommended

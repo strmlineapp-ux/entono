@@ -1,0 +1,71 @@
+{
+  "notebook_id": "N/A — web search unavailable, research synthesized from industry knowledge",
+  "research_date": "2026-05-01",
+  "research_method": "Industry knowledge synthesis (web search unavailable due to API configuration issue)",
+  "competitors_analyzed": [
+    "jilsander.com — minimalist luxury, similar aesthetic to Entono",
+    "cosstores.com — affordable minimalist fashion, editorial content structure",
+    "acnestudios.com — avant-garde minimalism, bold typography",
+    "the-row.com — ultra-luxury minimalist, sparse content, image-heavy",
+    "khaite.com — contemporary luxury, collection-first navigation",
+    "toteme.com — Scandinavian minimalism, clean grids",
+    "lemaire.fr — French minimalist luxury, poetic brand voice",
+    "marineserre.com — avant-garde, crescent moon motif, editorial lookbook"
+  ],
+  "navigation_patterns": [
+    "Minimal top nav with 3-5 links — Entono's 4 links (Collections, Lookbook, About, Contact) aligns with industry standard",
+    "Hamburger menu on mobile is universal — Entono's implementation with animated transitions matches luxury sites",
+    "Fixed/sticky header with transparency-to-solid transition is standard on editorial sites (Jil Sander, The Row)",
+    "Single-page anchor navigation is common for brand showcase sites — Entono uses this correctly",
+    "Avoid: mega-menus, category drop-downs, search bars — Entono correctly omits these (no e-commerce)"
+  ],
+  "hero_patterns": [
+    "Full-viewport hero with editorial image + brand name is the dominant pattern — Entono follows this",
+    "Parallax scrolling on hero image is common on luxury sites (Lemaire, Khaite) — Entono implements this",
+    "Tagline/subtitle below brand name is standard — Entono uses 'The depth of hue. The rhythm of form.' effectively",
+    "Scroll indicator at bottom of hero is near-universal — Entono uses a minimalist line animation",
+    "Avoid: video backgrounds on hero (heavy, slow load) — Entono correctly uses static image with parallax",
+    "Avoid: CTA buttons on hero (luxury sites rarely have 'Shop Now' — Entono correctly omits)"
+  ],
+  "content_structure": [
+    "Hero → Collections → Lookbook → About → Contact is a proven structure for fashion brand showcase sites",
+    "Collections presented as editorial cards with hover effects — standard on sites like Acne Studios, Toteme",
+    "Lookbook as masonry grid with lightbox — common pattern (Marine Serre, Khaite)",
+    "About section with brand story + stats — Entono's 3-paragraph philosophy + stats grid matches industry",
+    "Contact as footer-only is common, but Entono's dedicated contact section adds form interaction",
+    "Avoid: blog/content sections on brand-only sites — Entono correctly omits",
+    "Avoid: social media feeds — Entono correctly omits (luxury sites rarely embed live feeds)"
+  ],
+  "cta_patterns": [
+    "Luxury fashion sites rarely have CTAs — Entono correctly omits 'Shop Now' / 'Buy' buttons",
+    "Contact form is the primary interaction — Entono implements this with elegant underline inputs",
+    "Hover-only interactions (no click required) are standard for editorial content — Entono uses this on collections",
+    "Lightbox interaction for lookbook images is standard — Entono implements with Framer Motion scale animation",
+    "Avoid: email signup popups — Entono correctly omits (luxury sites don't do aggressive capture)"
+  ],
+  "differentiation_opportunities": [
+    "Autumn-only focus is unique — no major competitor centers exclusively on one season. This is Entono's strongest differentiator.",
+    "Autumn as a color philosophy (not just season) — Entono's brand voice ('The depth of hue') is more poetic than competitors",
+    "Single-page cinematic scroll experience — most fashion sites use multi-page navigation. Entono's scroll-driven narrative is more immersive",
+    "Warm earth tone palette vs. industry-standard black/white — Entono's oat + charcoal + sienna is distinctive",
+    "Playfair Display serif + warm tones creates a warmer, more inviting feel than the ultra-cool minimalism of Jil Sander / The Row",
+    "The '1 Season' stat in About section reinforces the niche focus — a unique storytelling element"
+  ],
+  "visual_patterns_to_avoid": [
+    "Black and white only — Entono's warm earth tones already differentiate",
+    "Heavy video content — slow load, poor mobile experience",
+    "Aggressive animations — luxury sites favor restrained motion. Entono's subtle Framer Motion transitions are appropriate",
+    "Grid-heavy e-commerce layouts — Entono uses editorial masonry, which is more appropriate",
+    "Sans-serif only typography — Entono's Playfair Display serif is correct for luxury positioning",
+    "Bright accent colors — Entono stays within warm earth tones, matching luxury standards",
+    "Pop-up modals and email captures — Entono correctly omits these"
+  ],
+  "technical_recommendations": [
+    "Image optimization is critical — Entono's 7 images total ~10MB. Use Next.js Image component or manual optimization (WebP, lazy loading) to ensure fast load",
+    "Framer Motion is the right choice — industry standard for luxury site animations. Entono uses it correctly",
+    "Tailwind CSS v4 is appropriate — matches modern luxury sites. Entono's @theme inline tokens are well-structured",
+    "Consider adding Open Graph / Twitter Card meta tags for social sharing (most fashion sites have rich previews)",
+    "Consider adding structured data (JSON-LD) for brand SEO — Entono currently has basic metadata only",
+    "Consider adding a favicon/brand icon — Entono may not have one yet"
+  ]
+}

@@ -3,6 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
+// Preload hero image for fastest LCP
+if (typeof window !== "undefined") {
+  const link = document.createElement("link");
+  link.rel = "preload";
+  link.as = "image";
+  link.href = "/images/hero_v3.png";
+  document.head.appendChild(link);
+}
+
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -41,7 +50,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url(/images/hero_v2.png)`,
+            backgroundImage: `url(/images/hero_v3.png)`,
             transform: "translateZ(0)",
           }}
         />

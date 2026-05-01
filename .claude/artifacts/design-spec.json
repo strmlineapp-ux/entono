@@ -1,0 +1,324 @@
+{
+  "project_name": "Entono",
+  "version": "1.0.0",
+  "design_direction": "Luxurious minimalism with warm earth tones — editorial fashion aesthetic. Single-page cinematic scroll experience. Differentiated from industry-standard black/white luxury sites through warm oat + charcoal + sienna palette and Playfair Display serif typography.",
+  "design_tokens": {
+    "colors": {
+      "oat": {
+        "value": "#f5f0e8",
+        "hsl": "hsl(36 35% 92%)",
+        "usage": "Primary background, nav backdrop, footer bg"
+      },
+      "oat-dark": {
+        "value": "#e8dfd2",
+        "hsl": "hsl(36 30% 86%)",
+        "usage": "Border colors, subtle dividers, hover states"
+      },
+      "charcoal": {
+        "value": "#2c2c2c",
+        "hsl": "hsl(0 0% 17%)",
+        "usage": "Primary text, dark section backgrounds, button bg"
+      },
+      "soft-black": {
+        "value": "#1a1a1a",
+        "hsl": "hsl(0 0% 10%)",
+        "usage": "Darkest accents, contrast text on oat"
+      },
+      "warm-gray": {
+        "value": "#8a8279",
+        "hsl": "hsl(28 6% 50%)",
+        "usage": "Secondary text, labels, muted descriptions"
+      },
+      "warm-gray-light": {
+        "value": "#b5ada4",
+        "hsl": "hsl(28 7% 68%)",
+        "usage": "Input borders, placeholder text, subtle overlays"
+      },
+      "warm-gray-dark": {
+        "value": "#5c564f",
+        "hsl": "hsl(28 7% 35%)",
+        "usage": "Hover text, active nav states, caption text"
+      },
+      "umber": {
+        "value": "#6b5b4e",
+        "hsl": "hsl(28 16% 33%)",
+        "usage": "Text selection bg, decorative accents"
+      },
+      "sienna": {
+        "value": "#8b6f47",
+        "hsl": "hsl(34 35% 40%)",
+        "usage": "Decorative blur elements, subtle highlights, About section accent"
+      }
+    },
+    "typography": {
+      "display": {
+        "font_family": "'Playfair Display', serif",
+        "variable_css": "var(--font-playfair)",
+        "weights": ["400", "500", "600", "700"],
+        "usage": "Brand name, section headings, large display text"
+      },
+      "body": {
+        "font_family": "'Inter', system-ui, sans-serif",
+        "variable_css": "var(--font-inter)",
+        "weights": ["300", "400", "500", "600"],
+        "usage": "Body text, navigation labels, form inputs, captions"
+      },
+      "tracking": {
+        "ultra": {
+          "value": "-0.05em",
+          "usage": "Brand name ENTONO, section headings"
+        },
+        "wide": {
+          "value": "0.12em",
+          "usage": "Copyright text, subtle labels"
+        },
+        "widest": {
+          "value": "0.25em",
+          "usage": "Nav links, category labels, form labels"
+        }
+      }
+    },
+    "spacing": {
+      "section-padding": {
+        "value": "px-8 sm:px-12 lg:px-20 xl:px-32",
+        "usage": "Reusable .section-padding class for horizontal content padding"
+      },
+      "section-vertical": {
+        "value": "py-32 md:py-48",
+        "usage": "Vertical padding for major sections (Collections, Lookbook, About, Contact)"
+      },
+      "nav-height": {
+        "value": "h-20",
+        "usage": "Fixed navigation header height (80px)"
+      }
+    },
+    "transitions": {
+      "smooth": {
+        "value": "duration-500",
+        "ease": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "usage": "Nav transitions, header state changes"
+      },
+      "reveal": {
+        "value": "duration-900",
+        "ease": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "usage": "Scroll-triggered section animations"
+      },
+      "hover": {
+        "value": "duration-400",
+        "ease": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "usage": "Collection card hover, button transitions"
+      },
+      "image-load": {
+        "value": "duration-700",
+        "usage": "Smooth image fade-in on load"
+      }
+    },
+    "z-index": {
+      "nav": "z-50",
+      "mobile-menu": "z-40",
+      "lightbox": "z-50"
+    }
+  },
+  "components": [
+    {
+      "name": "Nav",
+      "file": "src/components/Nav.tsx",
+      "client_server": "client",
+      "purpose": "Fixed navigation header with smooth scroll links, transparent-to-frosted-glass transition on scroll, mobile hamburger menu",
+      "props": {
+        "scrolled": "boolean — whether page has scrolled past 60px threshold",
+        "mobileOpen": "boolean — mobile menu open state"
+      },
+      "interactions": [
+        "Scroll listener triggers bg-oat/90 + backdrop-blur-md transition at 60px",
+        "Hamburger icon animates to X on mobile menu open (rotate + translate)",
+        "Mobile menu overlay with staggered link animations",
+        "Smooth scroll to section anchors on nav click"
+      ],
+      "dependencies": ["framer-motion (motion, AnimatePresence)"]
+    },
+    {
+      "name": "Hero",
+      "file": "src/components/Hero.tsx",
+      "client_server": "client",
+      "purpose": "Full-viewport hero with parallax editorial image, brand name, tagline, scroll indicator",
+      "props": {
+        "scrollY": "number — current scroll position for parallax calculation",
+        "progress": "number — scroll progress (0-1) for fade/scale calculations"
+      },
+      "interactions": [
+        "Parallax: background image moves at 2x scroll rate, scales up slightly",
+        "Content fades out as user scrolls (opacity based on scrollY / viewportHeight)",
+        "Staggered entrance animations: subtitle → brand name → tagline → scroll indicator",
+        "Scroll indicator bounces infinitely"
+      ],
+      "dependencies": ["framer-motion (motion)"]
+    },
+    {
+      "name": "Collections",
+      "file": "src/components/Collections.tsx",
+      "client_server": "client",
+      "purpose": "Three collection cards displayed in responsive grid with hover interactions",
+      "props": {
+        "collections": "Collection[] — array of collection objects with id, name, title, description, image"
+      },
+      "interactions": [
+        "Card lifts with Y translation on hover (whileHover: { y: -8 })",
+        "Image zooms slightly on hover (scale 1.08)",
+        "Description text expands below card on hover (AnimatePresence height animation)",
+        "Staggered reveal animations on scroll into view"
+      ],
+      "dependencies": ["framer-motion (motion, AnimatePresence)"]
+    },
+    {
+      "name": "Lookbook",
+      "file": "src/components/Lookbook.tsx",
+      "client_server": "client",
+      "purpose": "Masonry-style image grid with hover captions and full-screen lightbox viewer",
+      "props": {
+        "images": "Image[] — array of image objects with src and caption"
+      },
+      "interactions": [
+        "Image grid with hover caption overlay (opacity transition)",
+        "Click opens full-screen lightbox with scale animation",
+        "Lightbox closes on backdrop click or close button",
+        "Image caption displayed below lightbox image"
+      ],
+      "dependencies": ["framer-motion (motion, AnimatePresence)"]
+    },
+    {
+      "name": "About",
+      "file": "src/components/About.tsx",
+      "client_server": "client",
+      "purpose": "Brand philosophy section with editorial image, three-paragraph origin story, and stats grid",
+      "props": {
+        "stats": "Stats[] — array of stat objects with value and label"
+      },
+      "interactions": [
+        "Two-column layout: image left, text right (stacks on mobile)",
+        "Decorative sienna blur element in background",
+        "Staggered reveal animations for image, label, heading, paragraphs, stats",
+        "Stats grid with border-top divider"
+      ],
+      "dependencies": ["framer-motion (motion)"]
+    },
+    {
+      "name": "Contact",
+      "file": "src/components/Contact.tsx",
+      "client_server": "client",
+      "purpose": "Contact section with brand info, email addresses, Paris address, and contact form",
+      "props": {
+        "formData": "{ name: string; email: string; message: string } — form state",
+        "submitted": "boolean — whether form has been submitted"
+      },
+      "interactions": [
+        "Form with underline-style inputs (border-b only, no box)",
+        "Submit shows animated 'Thank you' confirmation",
+        "Form resets after 3 seconds",
+        "Button with hover fill animation (bg slides up from below)"
+      ],
+      "dependencies": ["framer-motion (motion)"]
+    },
+    {
+      "name": "Footer",
+      "file": "src/components/Footer.tsx",
+      "client_server": "server",
+      "purpose": "Site footer with brand name, tagline, nav links, copyright",
+      "props": {},
+      "interactions": [
+        "Static footer with border-top divider",
+        "Nav links repeat for easy access",
+        "Dynamic copyright year"
+      ],
+      "dependencies": []
+    },
+    {
+      "name": "AnimatedSection",
+      "file": "src/components/AnimatedSection.tsx",
+      "client_server": "client",
+      "purpose": "Reusable scroll-reveal wrapper — fades up sections as they enter viewport",
+      "props": {
+        "children": "ReactNode — content to animate",
+        "className": "string — additional CSS classes",
+        "delay": "number — stagger delay in seconds (default: 0)"
+      },
+      "interactions": [
+        "Uses Framer Motion useInView hook (once: true, margin: '-80px')",
+        "Initial state: opacity 0, translateY 48px",
+        "Animated state: opacity 1, translateY 0",
+        "Transition: duration 0.9s, ease cubic-bezier(0.22, 1, 0.36, 1)"
+      ],
+      "dependencies": ["framer-motion (motion, useInView)"]
+    }
+  ],
+  "pages": [
+    {
+      "path": "/",
+      "file": "src/app/page.tsx",
+      "title": "ENTONO — Autumn Wear",
+      "sections": [
+        {
+          "order": 1,
+          "component": "Nav",
+          "type": "fixed-header",
+          "notes": "Fixed position, spans full width, z-50"
+        },
+        {
+          "order": 2,
+          "component": "Hero",
+          "type": "full-viewport",
+          "id": "hero",
+          "notes": "h-screen, parallax image, brand name, tagline, scroll indicator"
+        },
+        {
+          "order": 3,
+          "component": "Collections",
+          "type": "section",
+          "id": "collections",
+          "notes": "bg-oat, py-32 md:py-44, 3-column grid, editorial cards"
+        },
+        {
+          "order": 4,
+          "component": "Lookbook",
+          "type": "section",
+          "id": "lookbook",
+          "notes": "bg-oat, py-32 md:py-44, masonry grid, lightbox"
+        },
+        {
+          "order": 5,
+          "component": "About",
+          "type": "section",
+          "id": "about",
+          "notes": "bg-charcoal text-oat, py-32 md:py-48, two-column layout, stats grid"
+        },
+        {
+          "order": 6,
+          "component": "Contact",
+          "type": "section",
+          "id": "contact",
+          "notes": "bg-oat, py-32 md:py-44, two-column layout (info + form)"
+        },
+        {
+          "order": 7,
+          "component": "Footer",
+          "type": "footer",
+          "notes": "bg-oat, border-top, nav links repeat, copyright"
+        }
+      ]
+    }
+  ],
+  "seo_recommendations": [
+    "Add Open Graph meta tags (og:title, og:description, og:image, og:url) — Entono currently has basic metadata only",
+    "Add Twitter Card meta tags (twitter:card, twitter:title, twitter:description) — standard for fashion brand social sharing",
+    "Add JSON-LD structured data (Brand schema) — helps search engines understand Entono as a fashion brand",
+    "Add favicon/brand icon — Entono may not have one yet",
+    "Consider adding robots.txt with standard allow rules"
+  ],
+  "performance_recommendations": [
+    "Image optimization critical — Entono's 7 images total ~10MB. Convert to WebP/AVIF format, add loading='lazy' for below-fold images",
+    "Consider using Next.js Image component for automatic optimization, or manual preprocessing with sharp/ImageMagick",
+    "Preload hero image for fastest LCP — add <link rel='preload'> in layout.tsx",
+    "Framer Motion animations are GPU-accelerated (transform + opacity only) — Entono uses them correctly",
+    "Consider font-display: swap (already set) — Entono uses next/font/google correctly"
+  ]
+}
